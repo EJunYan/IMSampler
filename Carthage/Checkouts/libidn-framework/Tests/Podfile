@@ -1,0 +1,9 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :osx, '10.9'
+use_frameworks!
+
+target 'libidnTestsPods' do
+  pod "libidn", :path => "../"  
+  # pod 'libidn', :git => 'https://github.com/chrisballinger/libidn-framework.git', :branch => 'master'
+end
+

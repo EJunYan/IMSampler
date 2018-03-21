@@ -1,0 +1,128 @@
+To: help-libidn@gnu.org, info-gnu@gnu.org
+Subject: Libidn 1.32 released
+<#part sign=pgpmime>
+GNU Libidn is a fully documented implementation of the Stringprep,
+Punycode and IDNA specifications.  Libidn's purpose is to encode and
+decode internationalized domain name strings.  There are native C, C#
+and Java libraries.
+
+Noteworthy changes since the last release (from NEWS file):
+
+** libidn: Fix crash in idna_to_unicode_8z8z and idna_to_unicode_8zlz.
+This problem was introduced in 1.31.  Reported by Adam Sampson.
+
+** API and ABI is backwards compatible with the previous version.
+
+The C library contains a generic Stringprep implementation.  Profiles
+for Nameprep, iSCSI, SASL, XMPP and Kerberos V5 are included.  Punycode
+and ASCII Compatible Encoding (ACE) via IDNA are supported.  A mechanism
+to define Top-Level Domain (TLD) specific validation tables, and to
+compare strings against those tables, is included.  Default tables for
+some TLDs are also included.
+
+The Stringprep API consists of two main functions, one for converting
+data from the system's native representation into UTF-8, and one
+function to perform the Stringprep processing.  Adding a new Stringprep
+profile for your application within the API is straightforward.  The
+Punycode API consists of one encoding function and one decoding
+function.  The IDNA API consists of the ToASCII and ToUnicode functions,
+as well as an high-level interface for converting entire domain names to
+and from the ACE encoded form.  The TLD API consists of one set of
+functions to extract the TLD name from a domain string, one set of
+functions to locate the proper TLD table to use based on the TLD name,
+and core functions to validate a string against a TLD table, and some
+utility wrappers to perform all the steps in one call.
+
+Libidn is developed for the GNU/Linux system, but runs on over 20 Unix
+platforms (including Solaris, IRIX, AIX, and Tru64) and Windows.  The
+library is written in C and (parts of) the API is also accessible from
+C++, Emacs Lisp, Python and Java.  A native Java and C# port is
+included.
+
+Also included is a command line tool, several self tests, code examples,
+and more.
+
+Improving Libidn is costly, but you can help!  We are looking for
+organizations that find Libidn useful and wish to contribute back.  You
+can contribute by reporting bugs, improve the software, or donate money
+or equipment.
+
+Commercial support contracts for Libidn are available, and they help
+finance continued maintenance.  Simon Josefsson Datakonsult AB, a
+Stockholm based privately held company, is currently funding Libidn
+maintenance.  We are always looking for interesting development
+projects.  See http://josefsson.org/ for more details.
+
+The project page of the library is available at:
+  https://www.gnu.org/software/libidn/
+
+All manual formats are available from:
+  https://www.gnu.org/software/libidn/manual/
+
+Specifically, the following formats are available.
+
+The main manual:
+  https://www.gnu.org/software/libidn/manual/libidn.html - HTML format
+  https://www.gnu.org/software/libidn/manual/libidn.pdf - PDF format
+
+API Reference manual:
+  https://www.gnu.org/software/libidn/reference/intro.html - GTK-DOC HTML
+  https://www.gnu.org/software/libidn/reference/libidn.pdf - GTK-DOC PDF
+
+Doxygen documentation:
+  https://www.gnu.org/software/libidn/doxygen/index.html - HTML format
+  https://www.gnu.org/software/libidn/doxygen/libidn.pdf - PDF format
+
+JavaDoc output for the Java API:
+  https://www.gnu.org/software/libidn/javadoc/
+
+If you need help to use Libidn, or want to help others, you are
+invited to join our help-libidn mailing list, see:
+  https://lists.gnu.org/mailman/listinfo/help-libidn
+
+Here are the compressed sources (3.4MB):
+  ftp://ftp.gnu.org/gnu/libidn/libidn-1.32.tar.gz
+  http://ftp.gnu.org/gnu/libidn/libidn-1.32.tar.gz
+
+Here are GPG detached signatures:
+  ftp://ftp.gnu.org/gnu/libidn/libidn-1.32.tar.gz.sig
+  http://ftp.gnu.org/gnu/libidn/libidn-1.32.tar.gz.sig
+
+Here are the SHA-1 and SHA-224 signatures:
+
+ddd018611b98af7c67d434aa42d15d39f45129f5  libidn-1.32.tar.gz
+d142619cfce664f9055cd3d553bd5dd7846fa69c385c83f40f0e3a65  libidn-1.32.tar.gz
+
+We also provide Windows binaries built using MinGW-w64 with the build
+script windows/libidn4win.mk, for 32-bit and 64-bit x86 architecures:
+
+  ftp://ftp.gnu.org/gnu/libidn/libidn-1.32-win32.zip
+  ftp://ftp.gnu.org/gnu/libidn/libidn-1.32-win32.zip.sig
+  ftp://ftp.gnu.org/gnu/libidn/libidn-1.32-win64.zip
+  ftp://ftp.gnu.org/gnu/libidn/libidn-1.32-win64.zip.sig
+
+Here are the SHA-1 and SHA-224 signatures:
+
+8726607f17f8741ceb4f1779c2c63779c580e903  libidn-1.32-win32.zip
+76e08dcf387f20d65e0a1d18b2acb3938a63a392c16e7fb83cb80997  libidn-1.32-win32.zip
+
+27f9fb841ac6ab31e1cbd37dd18b0db378797149  libidn-1.32-win64.zip
+4c5d5d7c528f560c4ee86053d78134839601aeb15f5e8f4136ad8a5d  libidn-1.32-win64.zip
+
+The software is cryptographically signed by the author using an OpenPGP
+key identified by the following information:
+
+pub   3744R/54265E8C 2014-06-22
+      Key fingerprint = 9AA9 BDB1 1BB1 B99A 2128  5A33 0664 A769 5426 5E8C
+uid                  Simon Josefsson <simon@josefsson.org>
+
+The key is available from:
+  http://josefsson.org/54265e8c.txt
+
+Code coverage, clang-analyzer output, and cyclomatic code complexity charts:
+  https://www.gnu.org/software/libidn/coverage/
+  https://www.gnu.org/software/libidn/clang-analyzer/
+  https://www.gnu.org/software/libidn/cyclo/
+
+Happy hacking,
+Simon
