@@ -14,6 +14,26 @@
 		60E8A30D20624C190047D59F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E8A30B20624C190047D59F /* LaunchScreen.storyboard */; };
 		60E8A31820624C1A0047D59F /* IMSamplerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8A31720624C1A0047D59F /* IMSamplerTests.swift */; };
 		60E8A32320624C1A0047D59F /* IMSamplerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8A32220624C1A0047D59F /* IMSamplerUITests.swift */; };
+		60E8A3372062574B0047D59F /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3312062574B0047D59F /* CocoaLumberjackSwift.framework */; };
+		60E8A3382062574B0047D59F /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3322062574B0047D59F /* CocoaAsyncSocket.framework */; };
+		60E8A3392062574B0047D59F /* KissXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3332062574B0047D59F /* KissXML.framework */; };
+		60E8A33A2062574B0047D59F /* libidn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3342062574B0047D59F /* libidn.framework */; };
+		60E8A33C2062574B0047D59F /* XMPPFrameworkSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3362062574B0047D59F /* XMPPFrameworkSwift.framework */; };
+		60E8A34020625E350047D59F /* CocoaLumberjackSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3312062574B0047D59F /* CocoaLumberjackSwift.framework */; };
+		60E8A34120625E350047D59F /* CocoaLumberjackSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3312062574B0047D59F /* CocoaLumberjackSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		60E8A34320625E510047D59F /* CocoaAsyncSocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3322062574B0047D59F /* CocoaAsyncSocket.framework */; };
+		60E8A34420625E510047D59F /* CocoaAsyncSocket.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3322062574B0047D59F /* CocoaAsyncSocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		60E8A34520625E710047D59F /* KissXML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3332062574B0047D59F /* KissXML.framework */; };
+		60E8A34620625E710047D59F /* KissXML.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3332062574B0047D59F /* KissXML.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		60E8A34720625E860047D59F /* libidn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3342062574B0047D59F /* libidn.framework */; };
+		60E8A34820625E860047D59F /* libidn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3342062574B0047D59F /* libidn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		60E8A34920625E8A0047D59F /* XMPPFrameworkSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3362062574B0047D59F /* XMPPFrameworkSwift.framework */; };
+		60E8A34A20625E8A0047D59F /* XMPPFrameworkSwift.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3362062574B0047D59F /* XMPPFrameworkSwift.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		60E8A34C20625EAF0047D59F /* XMPPFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A34B20625EAF0047D59F /* XMPPFramework.framework */; };
+		60E8A34D20625EB30047D59F /* XMPPFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A34B20625EAF0047D59F /* XMPPFramework.framework */; };
+		60E8A34E20625EB30047D59F /* XMPPFramework.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A34B20625EAF0047D59F /* XMPPFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		60E8A34F20625EC20047D59F /* CocoaLumberjack.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3352062574B0047D59F /* CocoaLumberjack.framework */; };
+		60E8A35020625EC20047D59F /* CocoaLumberjack.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 60E8A3352062574B0047D59F /* CocoaLumberjack.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +53,26 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		60E8A34220625E350047D59F /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				60E8A34420625E510047D59F /* CocoaAsyncSocket.framework in Embed Frameworks */,
+				60E8A34A20625E8A0047D59F /* XMPPFrameworkSwift.framework in Embed Frameworks */,
+				60E8A34620625E710047D59F /* KissXML.framework in Embed Frameworks */,
+				60E8A34820625E860047D59F /* libidn.framework in Embed Frameworks */,
+				60E8A34E20625EB30047D59F /* XMPPFramework.framework in Embed Frameworks */,
+				60E8A35020625EC20047D59F /* CocoaLumberjack.framework in Embed Frameworks */,
+				60E8A34120625E350047D59F /* CocoaLumberjackSwift.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		60E8A2FF20624C190047D59F /* IMSampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMSampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E8A30220624C190047D59F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +87,13 @@
 		60E8A31E20624C1A0047D59F /* IMSamplerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = IMSamplerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E8A32220624C1A0047D59F /* IMSamplerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IMSamplerUITests.swift; sourceTree = "<group>"; };
 		60E8A32420624C1A0047D59F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		60E8A3312062574B0047D59F /* CocoaLumberjackSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjackSwift.framework; path = Carthage/Build/iOS/CocoaLumberjackSwift.framework; sourceTree = "<group>"; };
+		60E8A3322062574B0047D59F /* CocoaAsyncSocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaAsyncSocket.framework; path = Carthage/Build/iOS/CocoaAsyncSocket.framework; sourceTree = "<group>"; };
+		60E8A3332062574B0047D59F /* KissXML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = KissXML.framework; path = Carthage/Build/iOS/KissXML.framework; sourceTree = "<group>"; };
+		60E8A3342062574B0047D59F /* libidn.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = libidn.framework; path = Carthage/Build/iOS/libidn.framework; sourceTree = "<group>"; };
+		60E8A3352062574B0047D59F /* CocoaLumberjack.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CocoaLumberjack.framework; path = Carthage/Build/iOS/CocoaLumberjack.framework; sourceTree = "<group>"; };
+		60E8A3362062574B0047D59F /* XMPPFrameworkSwift.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMPPFrameworkSwift.framework; path = Carthage/Build/iOS/XMPPFrameworkSwift.framework; sourceTree = "<group>"; };
+		60E8A34B20625EAF0047D59F /* XMPPFramework.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XMPPFramework.framework; path = Carthage/Build/iOS/XMPPFramework.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +101,19 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				60E8A34C20625EAF0047D59F /* XMPPFramework.framework in Frameworks */,
+				60E8A34F20625EC20047D59F /* CocoaLumberjack.framework in Frameworks */,
+				60E8A34520625E710047D59F /* KissXML.framework in Frameworks */,
+				60E8A34320625E510047D59F /* CocoaAsyncSocket.framework in Frameworks */,
+				60E8A3372062574B0047D59F /* CocoaLumberjackSwift.framework in Frameworks */,
+				60E8A3382062574B0047D59F /* CocoaAsyncSocket.framework in Frameworks */,
+				60E8A34020625E350047D59F /* CocoaLumberjackSwift.framework in Frameworks */,
+				60E8A3392062574B0047D59F /* KissXML.framework in Frameworks */,
+				60E8A34920625E8A0047D59F /* XMPPFrameworkSwift.framework in Frameworks */,
+				60E8A33A2062574B0047D59F /* libidn.framework in Frameworks */,
+				60E8A33C2062574B0047D59F /* XMPPFrameworkSwift.framework in Frameworks */,
+				60E8A34D20625EB30047D59F /* XMPPFramework.framework in Frameworks */,
+				60E8A34720625E860047D59F /* libidn.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +141,7 @@
 				60E8A31620624C1A0047D59F /* IMSamplerTests */,
 				60E8A32120624C1A0047D59F /* IMSamplerUITests */,
 				60E8A30020624C190047D59F /* Products */,
+				60E8A3302062574B0047D59F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +186,20 @@
 			path = IMSamplerUITests;
 			sourceTree = "<group>";
 		};
+		60E8A3302062574B0047D59F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				60E8A34B20625EAF0047D59F /* XMPPFramework.framework */,
+				60E8A3322062574B0047D59F /* CocoaAsyncSocket.framework */,
+				60E8A3352062574B0047D59F /* CocoaLumberjack.framework */,
+				60E8A3312062574B0047D59F /* CocoaLumberjackSwift.framework */,
+				60E8A3332062574B0047D59F /* KissXML.framework */,
+				60E8A3342062574B0047D59F /* libidn.framework */,
+				60E8A3362062574B0047D59F /* XMPPFrameworkSwift.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,6 +210,7 @@
 				60E8A2FB20624C190047D59F /* Sources */,
 				60E8A2FC20624C190047D59F /* Frameworks */,
 				60E8A2FD20624C190047D59F /* Resources */,
+				60E8A34220625E350047D59F /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -428,6 +504,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RLA64LU5VG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = IMSampler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.onelcat.IMSampler;
@@ -443,6 +523,10 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RLA64LU5VG;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
 				INFOPLIST_FILE = IMSampler/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.onelcat.IMSampler;
