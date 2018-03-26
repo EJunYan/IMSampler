@@ -9,73 +9,135 @@
 import UIKit
 import XMPPFrameworkSwift
 
+
+
 class ViewController: UIViewController {
 
-    var button: UIButton?
-    var userTextField: UITextField?
-    
     var stream: XMPPStream?
-    
     var jid: XMPPJID?
     
-    // 花名册
+    // 花名册 - 好友关系
     var rosterStorage: XMPPRosterCoreDataStorage?
     var roster: XMPPRoster?
-    
-    // 这里是聊天界面用的
-    var messageArchivingCoreDataStorage: XMPPMessageArchivingCoreDataStorage?
-    
-    var xmppMessageArchiving: XMPPMessageArchiving?
-    
-    
-    var messageContex: NSManagedObjectContext?
-    
+    // 好友管理
     var rosterArray = [XMPPJID]()
     
+    // 这里是聊天界面用的 - 消息聊天消息存储
+    var messageArchivingCoreDataStorage: XMPPMessageArchivingCoreDataStorage?
+    var xmppMessageArchiving: XMPPMessageArchiving?
+    var messageContex: NSManagedObjectContext?
+    
+    // 聊天室
+    var room: XMPPRoom?
+    var roomjid: XMPPJID?
+    
+    // 群聊邀请
+    var muc: XMPPMUC?
+    
+    var isRegister: Bool = false
+
     let user = "18682435851"
     let pwd = "12345678"
     let domain = "family"
     let resource = "iOS"
     let host = "54.222.203.152"
     
-    var isRegister: Bool = false
+    @IBOutlet weak var userTextField: UITextField!
     
-    var textView: UITextView?
+    @IBOutlet weak var chatMessageTextView: UITextView!
+    
+    @IBOutlet weak var roomTextField: UITextField!
+    
+    @IBOutlet weak var roomChatTextView: UITextView!
+    
+    @IBAction func addUserButtonAction(_ sender: Any) {
+        guard let user = userTextField.text else {
+            return
+        }
+        addFriend(user: user)
+    }
+    
+    @IBAction func createRoomButtonAction(_ sender: Any) {
+        guard let roomid = roomTextField.text else {
+            return
+        }
+        roomCreate(roomid: roomid)
+    }
+    
+    @IBAction func inviteUserInRoomButtonAction(_ sender: Any) {
+        guard let user = self.userTextField.text else {
+            return
+        }
+        
+        inviteUser(user: user)
+    }
+    
+    @IBAction func sendChatButtonAction(_ sender: Any) {
+        guard let user = userTextField.text , let text = chatMessageTextView.text else {
+            return
+        }
+        sendMessage(user: user, data: text)
+    }
+    
+    @IBAction func sendChatRommButtonAction(_ sender: Any) {
+    
+        
+    }
+    
+    func textXMLString() {
+        // MARK: 自定义包
+        let message = DDXMLElement(name: "message")
+        message.addAttribute(withName: "from", stringValue: jid?.full ?? "")
+        message.addAttribute(withName: "to", stringValue: "fr@faa/ios")
+        message.addAttribute(withName: "type", stringValue: "get")
+        
+        
+        
+        let sub = DDXMLElement(name: "sub")
+        sub.addNamespace(withPrefix: "sdasd", stringValue: "1231231")
+        sub.stringValue = "我就是实际数据部分"
+        message.addChild(sub)
+        
+        
+        
+        print(message.xmlString)
+        
+   
+        
+        // 解析
+        
+        let ty = message.attribute(forName: "type")?.stringValue // "get"
+        print(ty)
+        
+        let s = message.child(at: 0)
+        
+        let f = message.forName("sub")
+        print(f?.xmlString)
+        print(f?.xmlString , s?.xmlString, s?.name, s?.stringValue)
+        
+        
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
-        userTextField = UITextField()
-        userTextField?.borderStyle = .roundedRect
-        let w = self.view.frame.width * 0.8
-        userTextField?.frame = CGRect.init(x: 0, y: 30, width: w, height: 30)
-        userTextField?.backgroundColor = #colorLiteral(red: 0.8549019694, green: 0.250980407, blue: 0.4784313738, alpha: 1)
-        self.view.addSubview(userTextField!)
-        
-        textView = UITextView()
-        textView?.font = UIFont.systemFont(ofSize: 14)
-        textView?.textColor = #colorLiteral(red: 0.999904573, green: 1, blue: 0.999872148, alpha: 1)
-        textView?.backgroundColor = #colorLiteral(red: 0.2549019754, green: 0.2745098174, blue: 0.3019607961, alpha: 1)
-        textView?.frame = CGRect.init(x: 0, y: 88, width: self.view.frame.width, height: 200)
-        self.view.addSubview(textView!)
-        
-        
-        button = UIButton()
-        button?.backgroundColor = #colorLiteral(red: 1, green: 0.3820377273, blue: 0.4906897393, alpha: 1)
-        button?.frame.size = CGSize(width: 100, height: 50)
-        button?.addTarget(self, action: #selector(self.buttonAc), for: UIControlEvents.touchUpInside)
-        button?.center = self.view.center
-        self.view.addSubview(button!)
-        
-        self.connect()
+        textXMLString()
+//        self.connect()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
-    //MARK: - 发起链接
-    func connect() {
-        jid = XMPPJID.init(user: user, domain: domain, resource: resource)
+    func mucInit() {
+        muc = XMPPMUC.init(dispatchQueue: DispatchQueue.global())
+        muc?.activate(stream!)
+        muc?.addDelegate(self, delegateQueue: DispatchQueue.global())
         
+        
+    }
+    
+    
+    func streamInit() {
+        
+        jid = XMPPJID.init(user: user, domain: domain, resource: resource)
         self.stream = XMPPStream.init()
         self.stream?.myJID = jid
         
@@ -88,6 +150,9 @@ class ViewController: UIViewController {
             debugPrint(error.localizedDescription)
         }
         
+    }
+    
+    func rosterInit() {
         // 好友花名册部分
         
         // 初始化花名册
@@ -97,7 +162,9 @@ class ViewController: UIViewController {
         roster?.addDelegate(self, delegateQueue: DispatchQueue.global())
         // 好友花名册在通道上激活,相当于授权
         roster?.activate(stream!)
-        
+    }
+    
+    func messageChatInit() {
         // 这里是聊天界面用的
         // 初始化消息归档
         messageArchivingCoreDataStorage = XMPPMessageArchivingCoreDataStorage.sharedInstance()
@@ -108,9 +175,61 @@ class ViewController: UIViewController {
         
         messageContex = messageArchivingCoreDataStorage?.mainThreadManagedObjectContext
     }
+    var roomStorage: XMPPRoomCoreDataStorage?
+    // MARK: - 创建聊天室
+    func roomCreate(roomid: String) {
+        let roomdomain = "conference." + domain
+        
+        guard  let roomStorage = XMPPRoomCoreDataStorage.sharedInstance() else {
+            fatalError("房间存储实例 错误")
+            
+        }
+        
+        
+        self.roomStorage = roomStorage
+        roomjid = XMPPJID.init(user: roomid, domain: roomdomain, resource: nil)
+        
+        room = XMPPRoom.init(roomStorage: roomStorage, jid: roomjid!, dispatchQueue: DispatchQueue.global())
+        room?.configureRoom(usingOptions: nil)
+        
+        room?.addDelegate(self, delegateQueue: DispatchQueue.global())
+        room?.activate(stream!)
+        
+        // 自己需要主动加入
+        room?.join(usingNickname: user, history: nil)
+        
+    }
     
-    // 断开链接
+    // 邀请好友进入房间
+    func inviteUser(user: String) {
+        let fjid = XMPPJID.init(user: user, domain: domain, resource: resource)
+        room?.inviteUser(fjid!, withMessage: "邀请你加入会议")
+    }
+    
+    func leaveRoom() {
+        room?.deactivate()
+    }
+    
+    func destroyRoom() {
+        room?.destroy()
+    }
+    
+    
+    // MARK: - 发起链接
+    func connect() {
+        streamInit()
+
+        rosterInit()
+        
+        messageChatInit()
+        
+        mucInit()
+    }
+    
+
+    //MARK: - 断开链接
     func disConnet() {
+        
         if self.stream != nil {
             if self.stream?.isConnected == true {
                 sendOffline()
@@ -139,27 +258,22 @@ class ViewController: UIViewController {
         }
     }
     
-    @objc func buttonAc() {
-        
-        guard let user = self.userTextField?.text else {
-            return
-        }
-        
-        if let text = self.textView?.text {
-            self.sendMessage(user: user, data: text)
-        }
-        
-    }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    // 发送出席消息
+    
     func sendOnline() {
+    
+        // 发送出席消息
+        
         let p = XMPPPresence()
         self.stream?.send(p)
+        
+        // 发送 获取群聊列表
+        muc?.discoverServices()
     }
     
     // 发送下限
@@ -168,6 +282,7 @@ class ViewController: UIViewController {
         self.stream?.send(p)
     }
 
+    // MARK: - 发送单个聊天消息
     func sendMessage(user: String, data: Any) {
         
         guard self.stream?.isAuthenticated == true else {
@@ -176,6 +291,7 @@ class ViewController: UIViewController {
         
         let friendJID = XMPPJID.init(user: user, domain: domain, resource: resource)
         let message = XMPPMessage.init(type: "chat", to: friendJID)
+        
         if let text = data as? String {
             message.addBody(text)
             self.stream?.send(message)
@@ -240,6 +356,141 @@ class ViewController: UIViewController {
     
 }
 
+extension ViewController: XMPPMUCDelegate {
+    // 接受到邀请
+    func xmppMUC(_ sender: XMPPMUC, roomJID: XMPPJID, didReceiveInvitation message: XMPPMessage) {
+        guard  let roomStorage = XMPPRoomCoreDataStorage.sharedInstance() else {
+            fatalError("房间存储实例 错误")
+            
+        }
+        debugPrint("接受到邀请")
+        room = XMPPRoom.init(roomStorage: roomStorage, jid: roomJID)
+        room?.activate(stream!)
+        room?.addDelegate(self, delegateQueue: DispatchQueue.global())
+        
+        // 表示主动加入到房间 - 相当于 接受邀请 进入房间 - 不做操作
+        room?.join(usingNickname: user, history: nil)
+        
+    }
+}
+
+// MARK: - 聊天室部分
+// MARK: - XMPPRoomDelegate
+extension ViewController: XMPPRoomDelegate {
+    
+    func xmppRoomDidCreate(_ sender: XMPPRoom) {
+        debugPrint("聊天时创建成功")
+        // 创建成功后发送配置
+    }
+    
+    func xmppRoom(_ sender: XMPPRoom, didFailToDestroy iqError: XMPPIQ) {
+        
+    }
+    
+
+    
+    
+    // 配置成功聊天市
+    func xmppRoom(_ sender: XMPPRoom, didFetchConfigurationForm configForm: DDXMLElement) {
+        
+    }
+    
+    // MARK: - 获取聊天室信息
+    func xmppRoomDidJoin(_ sender: XMPPRoom) {
+        debugPrint( #function )
+        room?.fetchConfigurationForm()
+        room?.fetchBanList()
+        room?.fetchMembersList()
+        room?.fetchModeratorsList()
+    }
+    
+    //MARK: - 如果房间存在，会调用委托
+    // 收到禁止名单列表
+    func xmppRoom(_ sender: XMPPRoom, didFetchBanList items: [Any]) {
+        debugPrint( #function )
+    }
+    // 收到好友名单列表
+    func xmppRoom(_ sender: XMPPRoom, didFetchMembersList items: [Any]) {
+        debugPrint( #function )
+    }
+    // 收到主持人名单列表
+    func xmppRoom(_ sender: XMPPRoom, didFetchModeratorsList items: [Any]) {
+        debugPrint( #function )
+    }
+    
+    // MARK: 房间不存在
+    func xmppRoom(_ sender: XMPPRoom, didNotFetchBanList iqError: XMPPIQ) {
+        debugPrint( #function )
+    }
+    
+    func xmppRoom(_ sender: XMPPRoom, didNotFetchMembersList iqError: XMPPIQ) {
+        debugPrint( #function )
+    }
+    
+    func xmppRoom(_ sender: XMPPRoom, didNotFetchModeratorsList iqError: XMPPIQ) {
+        debugPrint( #function )
+    }
+    
+    // 离开聊天室
+    func xmppRoomDidLeave(_ sender: XMPPRoom) {
+        debugPrint( #function )
+    }
+    
+    // 销毁聊天室
+    func xmppRoomDidDestroy(_ sender: XMPPRoom) {
+        debugPrint( #function )
+    }
+    
+    // 新人加入群聊
+    func xmppRoom(_ sender: XMPPRoom, occupantDidJoin occupantJID: XMPPJID, with presence: XMPPPresence) {
+        debugPrint( #function )
+    }
+    
+    // 有人退出群聊
+    func xmppRoom(_ sender: XMPPRoom, occupantDidLeave occupantJID: XMPPJID, with presence: XMPPPresence) {
+        debugPrint(#function)
+    }
+    
+    // MARK: - 有人在群里面发言
+    func xmppRoom(_ sender: XMPPRoom, didReceive message: XMPPMessage, fromOccupant occupantJID: XMPPJID) {
+        debugPrint( #function,"是谁在群聊中说话" )
+    }
+    
+    
+}
+
+
+// MARK: - XMPPRoomStorage
+extension ViewController: XMPPRoomStorage {
+    
+    func configure(withParent aParent: XMPPRoom, queue: DispatchQueue) -> Bool {
+        debugPrint( #function )
+        return true
+    }
+    
+    func handle(_ presence: XMPPPresence, room: XMPPRoom) {
+        debugPrint(presence.xmlString,room.roomJID.full)
+        debugPrint( #function )
+    }
+    
+    func handleIncomingMessage(_ message: XMPPMessage, room: XMPPRoom) {
+        debugPrint(message.xmlString,room.roomJID.full)
+        debugPrint( #function )
+    }
+    
+    func handleOutgoingMessage(_ message: XMPPMessage, room: XMPPRoom) {
+        debugPrint(message.xmlString,room.roomJID.full)
+        debugPrint( #function )
+    }
+    
+    func handleDidLeave(_ room: XMPPRoom) {
+        debugPrint(room.roomJID.full)
+        debugPrint( #function )
+    }
+    
+    
+}
+// MARK: - XMPPStreamDelegate
 extension ViewController: XMPPStreamDelegate {
     
     func xmppStreamConnectDidTimeout(_ sender: XMPPStream) {
@@ -288,19 +539,27 @@ extension ViewController: XMPPStreamDelegate {
     }
     
     func xmppStream(_ sender: XMPPStream, didReceive message: XMPPMessage) {
-        debugPrint("接收消息", message.stringValue)
+        debugPrint("接收message", message.xmlString)
     }
     
     func xmppStream(_ sender: XMPPStream, didReceive presence: XMPPPresence) {
-        debugPrint("接收到出息消息",presence.stringValue)
+        debugPrint("接收presence", presence.xmlString)
     }
     
-    func xmppStream(_ sender: XMPPStream, willSend message: XMPPMessage) -> XMPPMessage? {
-        debugPrint(message.stringValue)
-        return message
+    func xmppStream(_ sender: XMPPStream, didReceive iq: XMPPIQ) -> Bool {
+        debugPrint("接收iq", iq.xmlString)
+        return true
     }
+    
+//    func xmppStream(_ sender: XMPPStream, willSend message: XMPPMessage) -> XMPPMessage? {
+//
+//        debugPrint(message.xmlString, " --- ", message.stringValue)
+//        return message
+//    }
+    
 }
 
+// MARK: - XMPPRosterDelegate
 extension ViewController: XMPPRosterDelegate {
     
     func xmppRosterDidBeginPopulating(_ sender: XMPPRoster, withVersion version: String) {
@@ -320,16 +579,18 @@ extension ViewController: XMPPRosterDelegate {
         // both:互粉
         // remove:删除好友
         
-        debugPrint("获取好友进行中")
+        debugPrint("获取好友进行中",item.xmlString)
         
         let sub = item.attribute(forName: "subscription")?.stringValue
-        if sub == "both" {
+        // 互相订阅才是好友
+        if sub != "both" {
             return
         }
         
         let jidString = item.attribute(forName: "jid")?.stringValue
+        debugPrint(jidString)
         let jid = XMPPJID.init(string: jidString!, resource: resource)
-        
+        debugPrint("好友", jid)
         if rosterArray.contains(jid!) {
             return
         }
@@ -344,7 +605,7 @@ extension ViewController: XMPPRosterDelegate {
         debugPrint("接收到好友请求")
         
         // - 拒绝
-        self.roster?.rejectPresenceSubscriptionRequest(from: presence.from!)
+//        self.roster?.rejectPresenceSubscriptionRequest(from: presence.from!)
         
         // - 接受
         self.roster?.acceptPresenceSubscriptionRequest(from: presence.from!, andAddToRoster: true)
@@ -352,4 +613,5 @@ extension ViewController: XMPPRosterDelegate {
     }
     
 }
+
 
