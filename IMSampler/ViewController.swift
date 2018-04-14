@@ -102,7 +102,13 @@ class ViewController: UIViewController {
         
         print(message.xmlString)
         
-   
+        do {
+            let message = try DDXMLElement.init(xmlString: message.xmlString)
+            print(message)
+            print(message.xmlString)
+        } catch let error {
+            debugLog("消息错误")
+        }
         
         // 解析
         
@@ -115,6 +121,8 @@ class ViewController: UIViewController {
         print(f?.xmlString)
         print(f?.xmlString , s?.xmlString, s?.name, s?.stringValue)
         
+        
+
         
     }
     

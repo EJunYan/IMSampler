@@ -7,6 +7,24 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		601C01542069DC5F00C11B53 /* FriendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601C01532069DC5F00C11B53 /* FriendViewController.swift */; };
+		601C01572069DE0300C11B53 /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601C01562069DE0300C11B53 /* FriendTableViewCell.swift */; };
+		601C015D2069E88800C11B53 /* SWRevealViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C015C2069E88800C11B53 /* SWRevealViewController.m */; };
+		601C01622069E8F500C11B53 /* CAAnimation+WAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C01602069E8F500C11B53 /* CAAnimation+WAnimation.m */; };
+		601C01672069E8FF00C11B53 /* UITabBarItem+WZLBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C01632069E8FD00C11B53 /* UITabBarItem+WZLBadge.m */; };
+		601C01682069E8FF00C11B53 /* UIBarButtonItem+WZLBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C01662069E8FF00C11B53 /* UIBarButtonItem+WZLBadge.m */; };
+		601C016B2069E90600C11B53 /* UIView+WZLBadge.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C016A2069E90600C11B53 /* UIView+WZLBadge.m */; };
+		601C016D2069E91D00C11B53 /* WZLBadgeImport.h in Sources */ = {isa = PBXBuildFile; fileRef = 601C016C2069E90C00C11B53 /* WZLBadgeImport.h */; };
+		601C016E2069E91D00C11B53 /* UIView+WZLBadge.h in Sources */ = {isa = PBXBuildFile; fileRef = 601C01692069E90500C11B53 /* UIView+WZLBadge.h */; };
+		601C016F2069E91D00C11B53 /* WZLBadgeProtocol.h in Sources */ = {isa = PBXBuildFile; fileRef = 601C015F2069E8ED00C11B53 /* WZLBadgeProtocol.h */; };
+		601C01702069E91D00C11B53 /* CAAnimation+WAnimation.h in Sources */ = {isa = PBXBuildFile; fileRef = 601C01612069E8F500C11B53 /* CAAnimation+WAnimation.h */; };
+		601C01712069E91D00C11B53 /* UIBarButtonItem+WZLBadge.h in Sources */ = {isa = PBXBuildFile; fileRef = 601C01652069E8FE00C11B53 /* UIBarButtonItem+WZLBadge.h */; };
+		601C01722069E91D00C11B53 /* UITabBarItem+WZLBadge.h in Sources */ = {isa = PBXBuildFile; fileRef = 601C01642069E8FE00C11B53 /* UITabBarItem+WZLBadge.h */; };
+		601C01732069E92200C11B53 /* SWRevealViewController.h in Sources */ = {isa = PBXBuildFile; fileRef = 601C015B2069E88800C11B53 /* SWRevealViewController.h */; };
+		601C0175206A007A00C11B53 /* RightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 601C0174206A007A00C11B53 /* RightViewController.swift */; };
+		601C8604206A269500F647BB /* ChatViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C8602206A269500F647BB /* ChatViewController.m */; };
+		601C8605206A269500F647BB /* ChatViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 601C8603206A269500F647BB /* ChatViewController.xib */; };
+		601C8608206A277400F647BB /* KeyboardView.m in Sources */ = {isa = PBXBuildFile; fileRef = 601C8607206A277400F647BB /* KeyboardView.m */; };
 		60E8A30320624C190047D59F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8A30220624C190047D59F /* AppDelegate.swift */; };
 		60E8A30520624C190047D59F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60E8A30420624C190047D59F /* ViewController.swift */; };
 		60E8A30820624C190047D59F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 60E8A30620624C190047D59F /* Main.storyboard */; };
@@ -74,6 +92,28 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		601C01522068A6F100C11B53 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		601C01532069DC5F00C11B53 /* FriendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendViewController.swift; sourceTree = "<group>"; };
+		601C01562069DE0300C11B53 /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
+		601C015A2069E88700C11B53 /* IMSampler-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "IMSampler-Bridging-Header.h"; sourceTree = "<group>"; };
+		601C015B2069E88800C11B53 /* SWRevealViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SWRevealViewController.h; sourceTree = "<group>"; };
+		601C015C2069E88800C11B53 /* SWRevealViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SWRevealViewController.m; sourceTree = "<group>"; };
+		601C015F2069E8ED00C11B53 /* WZLBadgeProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZLBadgeProtocol.h; sourceTree = "<group>"; };
+		601C01602069E8F500C11B53 /* CAAnimation+WAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+WAnimation.m"; sourceTree = "<group>"; };
+		601C01612069E8F500C11B53 /* CAAnimation+WAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+WAnimation.h"; sourceTree = "<group>"; };
+		601C01632069E8FD00C11B53 /* UITabBarItem+WZLBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITabBarItem+WZLBadge.m"; sourceTree = "<group>"; };
+		601C01642069E8FE00C11B53 /* UITabBarItem+WZLBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITabBarItem+WZLBadge.h"; sourceTree = "<group>"; };
+		601C01652069E8FE00C11B53 /* UIBarButtonItem+WZLBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIBarButtonItem+WZLBadge.h"; sourceTree = "<group>"; };
+		601C01662069E8FF00C11B53 /* UIBarButtonItem+WZLBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIBarButtonItem+WZLBadge.m"; sourceTree = "<group>"; };
+		601C01692069E90500C11B53 /* UIView+WZLBadge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WZLBadge.h"; sourceTree = "<group>"; };
+		601C016A2069E90600C11B53 /* UIView+WZLBadge.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WZLBadge.m"; sourceTree = "<group>"; };
+		601C016C2069E90C00C11B53 /* WZLBadgeImport.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WZLBadgeImport.h; sourceTree = "<group>"; };
+		601C0174206A007A00C11B53 /* RightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightViewController.swift; sourceTree = "<group>"; };
+		601C8601206A269500F647BB /* ChatViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ChatViewController.h; sourceTree = "<group>"; };
+		601C8602206A269500F647BB /* ChatViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ChatViewController.m; sourceTree = "<group>"; };
+		601C8603206A269500F647BB /* ChatViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatViewController.xib; sourceTree = "<group>"; };
+		601C8606206A277400F647BB /* KeyboardView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KeyboardView.h; sourceTree = "<group>"; };
+		601C8607206A277400F647BB /* KeyboardView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeyboardView.m; sourceTree = "<group>"; };
 		60E8A2FF20624C190047D59F /* IMSampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = IMSampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		60E8A30220624C190047D59F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		60E8A30420624C190047D59F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -134,9 +174,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		601C01592069E87200C11B53 /* Vender */ = {
+			isa = PBXGroup;
+			children = (
+				601C015E2069E8DE00C11B53 /* Badge */,
+				601C015B2069E88800C11B53 /* SWRevealViewController.h */,
+				601C015C2069E88800C11B53 /* SWRevealViewController.m */,
+			);
+			name = Vender;
+			sourceTree = "<group>";
+		};
+		601C015E2069E8DE00C11B53 /* Badge */ = {
+			isa = PBXGroup;
+			children = (
+				601C016C2069E90C00C11B53 /* WZLBadgeImport.h */,
+				601C01692069E90500C11B53 /* UIView+WZLBadge.h */,
+				601C016A2069E90600C11B53 /* UIView+WZLBadge.m */,
+				601C015F2069E8ED00C11B53 /* WZLBadgeProtocol.h */,
+				601C01612069E8F500C11B53 /* CAAnimation+WAnimation.h */,
+				601C01602069E8F500C11B53 /* CAAnimation+WAnimation.m */,
+				601C01652069E8FE00C11B53 /* UIBarButtonItem+WZLBadge.h */,
+				601C01662069E8FF00C11B53 /* UIBarButtonItem+WZLBadge.m */,
+				601C01642069E8FE00C11B53 /* UITabBarItem+WZLBadge.h */,
+				601C01632069E8FD00C11B53 /* UITabBarItem+WZLBadge.m */,
+			);
+			name = Badge;
+			sourceTree = "<group>";
+		};
 		60E8A2F620624C190047D59F = {
 			isa = PBXGroup;
 			children = (
+				601C01522068A6F100C11B53 /* README.md */,
 				60E8A30120624C190047D59F /* IMSampler */,
 				60E8A31620624C1A0047D59F /* IMSamplerTests */,
 				60E8A32120624C1A0047D59F /* IMSamplerUITests */,
@@ -158,12 +226,22 @@
 		60E8A30120624C190047D59F /* IMSampler */ = {
 			isa = PBXGroup;
 			children = (
+				601C01592069E87200C11B53 /* Vender */,
 				60E8A30220624C190047D59F /* AppDelegate.swift */,
+				601C0174206A007A00C11B53 /* RightViewController.swift */,
 				60E8A30420624C190047D59F /* ViewController.swift */,
+				601C01562069DE0300C11B53 /* FriendTableViewCell.swift */,
+				601C8606206A277400F647BB /* KeyboardView.h */,
+				601C8607206A277400F647BB /* KeyboardView.m */,
+				601C8601206A269500F647BB /* ChatViewController.h */,
+				601C8602206A269500F647BB /* ChatViewController.m */,
+				601C8603206A269500F647BB /* ChatViewController.xib */,
+				601C01532069DC5F00C11B53 /* FriendViewController.swift */,
 				60E8A30620624C190047D59F /* Main.storyboard */,
 				60E8A30920624C190047D59F /* Assets.xcassets */,
 				60E8A30B20624C190047D59F /* LaunchScreen.storyboard */,
 				60E8A30E20624C1A0047D59F /* Info.plist */,
+				601C015A2069E88700C11B53 /* IMSampler-Bridging-Header.h */,
 			);
 			path = IMSampler;
 			sourceTree = "<group>";
@@ -269,6 +347,7 @@
 				TargetAttributes = {
 					60E8A2FE20624C190047D59F = {
 						CreatedOnToolsVersion = 9.2;
+						LastSwiftMigration = 0920;
 						ProvisioningStyle = Automatic;
 					};
 					60E8A31220624C1A0047D59F = {
@@ -310,6 +389,7 @@
 			files = (
 				60E8A30D20624C190047D59F /* LaunchScreen.storyboard in Resources */,
 				60E8A30A20624C190047D59F /* Assets.xcassets in Resources */,
+				601C8605206A269500F647BB /* ChatViewController.xib in Resources */,
 				60E8A30820624C190047D59F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -335,8 +415,25 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				601C0175206A007A00C11B53 /* RightViewController.swift in Sources */,
+				601C01732069E92200C11B53 /* SWRevealViewController.h in Sources */,
+				601C016D2069E91D00C11B53 /* WZLBadgeImport.h in Sources */,
+				601C016E2069E91D00C11B53 /* UIView+WZLBadge.h in Sources */,
+				601C016F2069E91D00C11B53 /* WZLBadgeProtocol.h in Sources */,
+				601C01702069E91D00C11B53 /* CAAnimation+WAnimation.h in Sources */,
+				601C01712069E91D00C11B53 /* UIBarButtonItem+WZLBadge.h in Sources */,
+				601C01722069E91D00C11B53 /* UITabBarItem+WZLBadge.h in Sources */,
+				601C8604206A269500F647BB /* ChatViewController.m in Sources */,
+				601C01542069DC5F00C11B53 /* FriendViewController.swift in Sources */,
+				601C01622069E8F500C11B53 /* CAAnimation+WAnimation.m in Sources */,
 				60E8A30520624C190047D59F /* ViewController.swift in Sources */,
+				601C015D2069E88800C11B53 /* SWRevealViewController.m in Sources */,
+				601C016B2069E90600C11B53 /* UIView+WZLBadge.m in Sources */,
+				601C01672069E8FF00C11B53 /* UITabBarItem+WZLBadge.m in Sources */,
 				60E8A30320624C190047D59F /* AppDelegate.swift in Sources */,
+				601C01682069E8FF00C11B53 /* UIBarButtonItem+WZLBadge.m in Sources */,
+				601C8608206A277400F647BB /* KeyboardView.m in Sources */,
+				601C01572069DE0300C11B53 /* FriendTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -502,6 +599,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RLA64LU5VG;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -512,6 +610,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.onelcat.IMSampler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "IMSampler/IMSampler-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -521,6 +621,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = RLA64LU5VG;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -531,6 +632,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.onelcat.IMSampler;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "IMSampler/IMSampler-Bridging-Header.h";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

@@ -13,9 +13,27 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
+    var viewController: SWRevealViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+//        let main = FriendViewController()
+        let main = UINavigationController.init(rootViewController: FriendViewController())
+        
+        let rightViewController = UINavigationController.init(rootViewController: RightViewController())
+        
+        let revealController = SWRevealViewController.init(rearViewController: nil, frontViewController: main)
+        
+        revealController?.delegate = self
+
+        revealController?.rightViewController = rightViewController
+        revealController?.rearViewRevealWidth = 200
+        self.viewController = revealController;
+        
+        window?.rootViewController = viewController
+        window?.makeKeyAndVisible()
         return true
     }
 
@@ -42,5 +60,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 
+}
+
+extension AppDelegate: SWRevealViewControllerDelegate {
+//    func revealController(_ revealController: SWRevealViewController!, animationControllerFor operation: SWRevealControllerOperation, from fromVC: UIViewController!, to toVC: UIViewController!) -> UIViewControllerAnimatedTransitioning! {
+//        <#code#>
+//    }
 }
 
