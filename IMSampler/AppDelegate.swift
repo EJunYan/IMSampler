@@ -17,23 +17,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        window = UIWindow(frame: UIScreen.main.bounds)
-        
-//        let main = FriendViewController()
-        let main = UINavigationController.init(rootViewController: FriendViewController())
-        
-        let rightViewController = UINavigationController.init(rootViewController: RightViewController())
-        
-        let revealController = SWRevealViewController.init(rearViewController: nil, frontViewController: main)
-        
-        revealController?.delegate = self
-
-        revealController?.rightViewController = rightViewController
-        revealController?.rearViewRevealWidth = 200
-        self.viewController = revealController;
-        
-        window?.rootViewController = viewController
-        window?.makeKeyAndVisible()
+//        window = UIWindow(frame: UIScreen.main.bounds)
+//        
+////        let main = FriendViewController()
+//        let main = UINavigationController.init(rootViewController: FriendViewController())
+//        
+//        let rightViewController = UINavigationController.init(rootViewController: RightViewController())
+//        
+//        let revealController = SWRevealViewController.init(rearViewController: nil, frontViewController: main)
+//        
+//        revealController?.delegate = self
+//
+//        revealController?.rightViewController = rightViewController
+//        revealController?.rearViewRevealWidth = 200
+//        self.viewController = revealController;
+//        
+//        window?.rootViewController = viewController
+//        window?.makeKeyAndVisible()
         return true
     }
 

@@ -104,10 +104,13 @@ class ViewController: UIViewController {
         
         do {
             let message = try DDXMLElement.init(xmlString: message.xmlString)
-            print(message)
-            print(message.xmlString)
+            print("111",message)
+            print("222",message.xmlString)
+            let tos = message.attribute(forName: "to")?.stringValue
+            let toJid = XMPPJID(string: tos!)
+            print("333",toJid?.user)
         } catch let error {
-            debugLog("消息错误")
+//            debugLog("消息错误")
         }
         
         // 解析
